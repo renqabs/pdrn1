@@ -1,0 +1,9 @@
+{
+  "bind": "0.0.0.0:8080",
+  "timeout": 600,
+  "proxy_url": "",
+  "public_share": false,
+  "site_password": "",
+  "setup_password": "123456",
+  "whitelist": null
+}

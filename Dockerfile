@@ -13,7 +13,7 @@ WORKDIR /app
 
 # 下载并解压文件，并给予所有用户读写和执行权限
 RUN latest_url=$(curl "https://api.github.com/repos/pandora-next/deploy/releases/latest" | jq -r '.assets[] | select(.name | contains("amd64")) | .browser_download_url' | head -n 1)
-    &&curl -Lo PandoraNext.tar.gz $latest_url \
+    && curl -Lo PandoraNext.tar.gz $latest_url \
     && tar -xzf PandoraNext.tar.gz --strip-components=1 \
     && rm PandoraNext.tar.gz \
     && chmod 777 -R .

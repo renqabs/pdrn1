@@ -43,4 +43,4 @@ RUN mkdir /.cache && chmod 777 /.cache
 EXPOSE 8080
 
 # 启动命令
-CMD ["sh","start.sh"]
+CMD ["./PandoraNext"]

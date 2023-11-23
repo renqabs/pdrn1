@@ -1,7 +1,7 @@
 nohup ./PandoraNext &
 function update_license {
     curl -fLO https://dash.pandoranext.com/data/${LICENSE_URL}/license.jwt
-    curl -H "Authorization: Bearer ${SETUP_PASSWORD}" -X POST "http://127.0.0.1:8080/setup/reload"
+    curl -H "Authorization: Bearer ${SETUP_PASSWORD}" -X POST "http://localhost:8080/setup/reload"
 }
 # 无限循环
 while true

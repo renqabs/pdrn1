@@ -4,15 +4,19 @@ FROM golang:alpine AS builder
 # 安装必要的工具
 RUN apk update && apk add --no-cache \
     curl \
-    tar
+    tar  \
+    jq
 
 # 创建新的工作目录
 WORKDIR /app
+ARG latest_url
+# 获取最新版本release url
+latest_url=$(curl -s "https://api.github.com/repos/pandora-next/deploy/releases/latest" | jq -r '.assets[] | select(.name | contains("amd64")) | .browser_download_url' | head -n 1)
 
 # 下载并解压文件，并给予所有用户读写和执行权限
-RUN curl -LO https://github.com/pandora-next/deploy/releases/download/v0.2.1/PandoraNext-v0.2.1-linux-amd64-90b19a5.tar.gz \
-    && tar -xzf PandoraNext-v0.2.1-linux-amd64-90b19a5.tar.gz --strip-components=1 \
-    && rm PandoraNext-v0.2.1-linux-amd64-90b19a5.tar.gz \
+RUN curl -Lo PandoraNext.tar.gz $latest_url \
+    && tar -xzf PandoraNext.tar.gz --strip-components=1 \
+    && rm PandoraNext.tar.gz \
     && chmod 777 -R .
     
 # 获取授权

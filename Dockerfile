@@ -11,7 +11,7 @@ RUN apk update && apk add --no-cache \
 WORKDIR /app
 ARG latest_url
 # 获取最新版本release url
-latest_url=$(curl -s "https://api.github.com/repos/pandora-next/deploy/releases/latest" | jq -r '.assets[] | select(.name | contains("amd64")) | .browser_download_url' | head -n 1)
+latest_url=${curl -s "https://api.github.com/repos/pandora-next/deploy/releases/latest" | jq -r '.assets[] | select(.name | contains("amd64")) | .browser_download_url' | head -n 1}
 
 # 下载并解压文件，并给予所有用户读写和执行权限
 RUN curl -Lo PandoraNext.tar.gz $latest_url \

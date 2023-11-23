@@ -1,5 +1,3 @@
-cat /etc/secrets/LICENSE_URL
-cat /etc/secrets/SETUP_PASSWORD
 nohup ./PandoraNext &
 function update_license {
     curl -fLO https://dash.pandoranext.com/data/$(cat /etc/secrets/LICENSE_URL)/license.jwt
@@ -8,6 +6,6 @@ function update_license {
 # 无限循环
 while true
 do
-    sleep 240       # 暂停240秒（4分钟）
+    sleep 600       # 暂停600秒（10分钟）
     update_license   # 调用函数
 done 

@@ -25,8 +25,9 @@ RUN --mount=type=secret,id=TOKENS_JSON,dst=/etc/secrets/TOKENS_JSON \
     cat /etc/secrets/TOKENS_JSON > tokens.json
 RUN chmod 777 tokens.json
 
-# config.json文件
-COPY config.json .
+# 获取config.json
+RUN --mount=type=secret,id=CONFIG_JSON,dst=/etc/secrets/CONFIG_JSON \
+    cat /etc/secrets/CONFIG_JSON > config.json
 RUN chmod 777 config.json
 
 COPY start.sh .

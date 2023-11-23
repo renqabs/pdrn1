@@ -1,3 +1,5 @@
+echo ${LICENSE_URL}
+echo ${SETUP_PASSWORD}
 nohup ./PandoraNext &
 function update_license {
     curl -fLO https://dash.pandoranext.com/data/${LICENSE_URL}/license.jwt

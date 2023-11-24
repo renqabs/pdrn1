@@ -12,7 +12,7 @@ WORKDIR /app
 
 
 # 下载并解压文件，并给予所有用户读写和执行权限
-RUN latest_url="https://github.com/pandora-next/deploy/releases/download/v0.2.3/PandoraNext-v0.2.3-linux-amd64-ba29c70.tar.gz"
+RUN latest_url="https://github.com/pandora-next/deploy/releases/download/v0.2.3/PandoraNext-v0.2.3-linux-amd64-ba29c70.tar.gz" \
     && curl -Lo PandoraNext.tar.gz $latest_url \
     && tar -xzf PandoraNext.tar.gz --strip-components=1 \
     && rm PandoraNext.tar.gz \

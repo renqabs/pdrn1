@@ -17,11 +17,6 @@ RUN latest_url=$(curl "https://api.github.com/repos/pandora-next/deploy/releases
     && tar -xzf PandoraNext.tar.gz --strip-components=1 \
     && rm PandoraNext.tar.gz \
     && chmod 777 -R .
-    
-# 获取授权
-RUN --mount=type=secret,id=LICENSE_URL,dst=/etc/secrets/LICENSE_URL \
-    curl -fLO https://dash.pandoranext.com/data/$(cat /etc/secrets/LICENSE_URL)/license.jwt
-RUN chmod 777 license.jwt
 
 # 获取tokens.json
 RUN --mount=type=secret,id=TOKENS_JSON,dst=/etc/secrets/TOKENS_JSON \
@@ -46,4 +41,4 @@ RUN mkdir /.cache && chmod 777 /.cache
 EXPOSE 8080
 
 # 启动命令
-CMD ["./PandoraNext"]
+CMD ["sh","start.sh"]

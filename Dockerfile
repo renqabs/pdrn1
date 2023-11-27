@@ -28,9 +28,6 @@ RUN --mount=type=secret,id=CONFIG_JSON,dst=/etc/secrets/CONFIG_JSON \
     cat /etc/secrets/CONFIG_JSON > config.json
 RUN chmod 777 config.json
 
-COPY start.sh .
-RUN chmod 777 start.sh
-
 # 修改PandoraNext的执行权限
 RUN chmod 777 ./PandoraNext
 
@@ -41,4 +38,4 @@ RUN mkdir /.cache && chmod 777 /.cache
 EXPOSE 8080
 
 # 启动命令
-CMD ["sh","start.sh"]
+CMD ["./PandoraNext"]

@@ -12,7 +12,9 @@ WORKDIR /app
 
 
 # 下载并解压文件，并给予所有用户读写和执行权限
-RUN latest_url=$(curl "https://api.github.com/repos/pandora-next/deploy/releases/latest" | jq -r '.assets[] | select(.name | contains("amd64")) | .browser_download_url' | head -n 1) \
+RUN version=$(basename $(curl -sL -o /dev/null -w %{url_effective} https://github.com/pandora-next/deploy/releases/latest)) \
+    && base_url="https://github.com/pandora-next/deploy/releases/expanded_assets/$version" \
+    && latest_url="https://github.com/$(curl -sL $base_url | grep "href.*amd64.*\.tar.gz" | sed 's/.*href="//' | sed 's/".*//')" \
     && curl -Lo PandoraNext.tar.gz $latest_url \
     && tar -xzf PandoraNext.tar.gz --strip-components=1 \
     && rm PandoraNext.tar.gz \
@@ -20,13 +22,16 @@ RUN latest_url=$(curl "https://api.github.com/repos/pandora-next/deploy/releases
 
 # 获取tokens.json
 RUN --mount=type=secret,id=TOKENS_JSON,dst=/etc/secrets/TOKENS_JSON \
-    cat /etc/secrets/TOKENS_JSON > tokens.json
-RUN chmod 777 tokens.json
+    if [ -f /etc/secrets/TOKENS_JSON ]; then \
+    cat /etc/secrets/TOKENS_JSON > tokens.json \
+    && chmod 777 tokens.json; \
+    else \
+    echo "TOKENS_JSON not found, skipping"; \
+    fi
 
 # 获取config.json
 RUN --mount=type=secret,id=CONFIG_JSON,dst=/etc/secrets/CONFIG_JSON \
-    cat /etc/secrets/CONFIG_JSON > config.json
-RUN chmod 777 config.json
+    cat /etc/secrets/CONFIG_JSON > config.json && chmod 777 config.json
 
 # 修改PandoraNext的执行权限
 RUN chmod 777 ./PandoraNext

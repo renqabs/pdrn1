@@ -22,6 +22,8 @@ https://render.com/
 
 3.3 在`Public Git repository`中填写github项目地址(`这个页面中，其它配置不要修改，否则有封号风险`)，没有fork的话，可以直接填写我的地址，这里以我的github仓库地址为例，点击Continue
 ![image](https://github.com/renqabs/pdrn1/assets/130155002/c770a9da-afec-49f8-b4e6-db3db8836620)
+![image](https://github.com/renqabs/pdrn1/assets/130155002/d4b7faa9-7702-4c00-920c-9888d3657a6a)
+
 
 3.4 Name填写一个唯一的名字，例如 `pandora-next`
 

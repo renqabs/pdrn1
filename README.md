@@ -3,7 +3,7 @@
 render对bing的封锁很严，只要fork过go-proxy-bingai，bingo，chat-sydney的很大几率会被封号。
 
 ## 1.获取license_id
-license_url获取方法，复制红色框内的字符串（两个斜杠之间，不包含斜杠）
+license_url获取方法，到[pandora-next](https://github.com/pandora-next/deploy)获取，或直接点击[这里](https://dash.pandoranext.com)
 ![image](https://github.com/renqabs/pdrn1/assets/130155002/2bfd795b-47f3-41a8-a913-d5b722b6eaaf)
 ![image](https://github.com/renqabs/pdrn/assets/130155002/7eec537b-bbc2-4a9d-bd65-472da5dc52fb)
 ## 2.fork本项目

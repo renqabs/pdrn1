@@ -15,10 +15,13 @@ https://github.com/renqabs/pdrn1/fork
 https://render.com/
 
 3.1 点击右上角的 New+，然后下拉框中选择 Web Service
+![image](https://github.com/renqabs/pdrn1/assets/130155002/9d917e95-6b00-4f99-83db-95ad676425df)
 
 3.2 选择默认的`Build and deploy from a Git repository`点击 Next
+![image](https://github.com/renqabs/pdrn1/assets/130155002/468327c5-7310-4e85-82bf-77a83317548e)
 
-3.3 在`Connect a repository`中找到 pdrn，点击Connext
+3.3 在`Public Git repository`中填写github项目地址(`这个页面中，其它配置不要修改，否则有封号风险`)，没有fork的话，可以直接填写我的地址，这里以我的github仓库地址为例，点击Continue
+![image](https://github.com/renqabs/pdrn1/assets/130155002/c770a9da-afec-49f8-b4e6-db3db8836620)
 
 3.4 Name填写一个唯一的名字，例如 `pandora-next`
 

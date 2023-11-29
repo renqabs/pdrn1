@@ -10,8 +10,6 @@ license_url获取方法，复制红色框内的字符串（两个斜杠之间，
 https://github.com/renqabs/pdrn1/fork
 然后准备好自己的tokens.json以及config.json，详细配置详见[pandora-next](https://github.com/pandora-next/deploy)
 
-无额外需求,在config.json中setup password尽量设置的复杂一些
-
 ### 3.登陆render
 
 https://render.com/

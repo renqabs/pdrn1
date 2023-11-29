@@ -1,6 +1,6 @@
 # 在render部署pandora-next
 
-render对bing的封锁很严，==只要fork过==go-proxy-bingai，bingo，chat-sydney的很大几率会被封号。
+render对bing的封锁很严，只要fork过go-proxy-bingai，bingo，chat-sydney的很大几率会被封号。
 
 ## 1.获取license_id
 license_url获取方法，复制红色框内的字符串（两个斜杠之间，不包含斜杠）

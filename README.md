@@ -47,7 +47,9 @@ File Contents填写示例如下，注意替换掉`license_id`,`site_password`,`s
   "site_password": "Replace it",
   "setup_password": "Replace it",
   "server_tokens": true,
-  "server_mode": "web",
+  "server_tokens": true,
+  "proxy_api_prefix": "",
+  "isolated_conv_title": "*",
   "captcha": {
     "provider": "",
     "site_key": "",
